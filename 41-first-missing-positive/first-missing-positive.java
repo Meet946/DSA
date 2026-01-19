@@ -17,6 +17,7 @@ class Solution {
                 return j+1;
             }
         }
+        // if all elements are at right position then return nums.length + 1
         return nums.length + 1;
     }
     static void swap(int[] nums, int first, int second){
