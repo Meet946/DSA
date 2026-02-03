@@ -13,12 +13,18 @@ class Solution(object):
         """
         start, end = 1, n
         while ( start <= end):
-            mid = (start + end)//2
+            mid = start + ( end - start)//2
+
             result = guess(mid)
 
             if result == 0:
                 return mid
+            
             elif result == -1:
                 end = mid - 1
+            
             else: 
-                start = mid + 1        
+                start = mid + 1
+
+        return -1
+        
