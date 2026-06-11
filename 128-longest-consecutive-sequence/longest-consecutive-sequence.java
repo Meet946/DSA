@@ -9,8 +9,8 @@ class Solution {
         // sset to store unique elements
         Set<Integer> st = new HashSet<>();
 
-        for(int i = 0; i < n; i++){
-            st.add(nums[i]);
+        for(int num : nums){
+            st.add(num);
         }
 
         // to check the longest sequence for each num in set
