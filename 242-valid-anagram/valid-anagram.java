@@ -4,17 +4,17 @@ class Solution {
             return false;
         }
 
-        Map<Character, Integer> countMap = new HashMap<>();
+        int[] charCounts = new int[26];
 
-        for (char ch : s.toCharArray()) {
-            countMap.put(ch, countMap.getOrDefault(ch, 0) + 1);
+        for (int i = 0; i < s.length(); i++) {
+            charCounts[s.charAt(i) - 'a']++; // Increment for s
+            charCounts[t.charAt(i) - 'a']--; // Decrement for t
         }
 
-        for (char ch : t.toCharArray()) {
-            if (!countMap.containsKey(ch) || countMap.get(ch) == 0) {
+        for (int count : charCounts) {
+            if (count != 0) {
                 return false;
             }
-            countMap.put(ch, countMap.get(ch) - 1);
         }
 
         return true;
