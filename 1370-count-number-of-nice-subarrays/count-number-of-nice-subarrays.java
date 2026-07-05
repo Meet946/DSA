@@ -1,22 +1,24 @@
 class Solution {
     public int numberOfSubarrays(int[] nums, int k) {
-        
-        HashMap<Integer, Integer> map = new HashMap<>();
 
-        map.put(0,1);
+        return countSubArrays(nums, k) - countSubArrays(nums, k - 1);
+    }
+    static int countSubArrays(int[] nums, int k){
+        int left = 0, res = 0;
 
-        int res = 0;
-
-        int oddCount = 0;
-
-        for(int num : nums){
-            if(num % 2 == 1) oddCount++;
-
-            if(map.containsKey(oddCount - k)){
-                res += map.get(oddCount - k);
+        for(int right = 0; right < nums.length; right++){
+            if(nums[right] % 2 == 1){
+                k--;
             }
 
-            map.put(oddCount, map.getOrDefault(oddCount, 0) + 1);
+            while(k < 0) {
+                if(nums[left] % 2 == 1){
+                    k++;
+                }
+                left++;
+            }
+
+            res += right - left + 1;
         }
 
         return res;
