@@ -4,14 +4,10 @@ class Solution:
             return False
 
         freq = {}
-        for char in s:
-            freq[char] = freq.get(char, 0) + 1
-
-        for char in t:
-            if char not in freq.keys():
-                return False
-            freq[char] -= 1
-        
+        for i in range(len(s)):
+            freq[s[i]] = freq.get(s[i], 0) + 1
+            freq[t[i]] = freq.get(t[i], 0) - 1      
+            
         for value in freq.values():
             if value != 0:
                 return False
