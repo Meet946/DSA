@@ -10,5 +10,5 @@ LEFT JOIN Examinations E
     AND SU.subject_name = E.subject_name
 
 GROUP BY S.student_id, S.student_name, SU.subject_name
-ORDER BY S.student_id, S.student_name, SU.subject_name
+ORDER BY S.student_id, SU.subject_name
 ;
