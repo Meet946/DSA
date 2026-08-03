@@ -1,6 +1,6 @@
 
 SELECT r.contest_id, 
-    ROUND((COUNT(user_id) / (SELECT COUNT(*) FROM Users)) * 100,
+    ROUND((COUNT(user_id) * 100 / (SELECT COUNT(*) FROM Users)) ,
      2) AS percentage
 FROM Register AS r
 GROUP BY r.contest_id
